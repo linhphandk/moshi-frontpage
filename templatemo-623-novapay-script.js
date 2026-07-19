@@ -41,12 +41,12 @@ mobileMenu.querySelectorAll('a').forEach(a=>{
 });
 
 const faqs=[
-  {q:'What is a media kit?',a:'A media kit is a one-page summary of your creator profile — your stats, audience demographics, niches, and content samples. Brands use it to decide if you\'re a fit for their campaigns. Noshi makes creating one effortless.'},
-  {q:'Is Noshi really free?',a:'Yes — always. Noshi is free for every creator, regardless of follower count. There are no hidden tiers, no "premium" subscriptions, and no credit card required. We\'ll introduce optional paid features later for power users, but the core product stays free.'},
+  {q:'What is a media kit?',a:'A media kit is a one-page summary of your creator profile — your stats, audience demographics, niches, and content samples. Brands use it to decide if you\'re a fit for their campaigns. Nezia makes creating one effortless.'},
+  {q:'Is Nezia really free?',a:'Yes — always. Nezia is free for every creator, regardless of follower count. There are no hidden tiers, no "premium" subscriptions, and no credit card required. We\'ll introduce optional paid features later for power users, but the core product stays free.'},
   {q:'How does it work?',a:'Connect your social accounts (or enter stats manually), tell us about your content and niches, and we generate a stunning media kit as a PDF and a live shareable page at noshi.com/@yourhandle. It takes about 2 minutes.'},
-  {q:'Who is Noshi for?',a:'Noshi is built for micro and mid-sized creators with 1K to 100K followers. If you\'ve ever been asked for a media kit by a brand and didn\'t have one — or spent hours making one in Canva — Noshi is for you.'},
+  {q:'Who is Nezia for?',a:'Nezia is built for micro and mid-sized creators with 1K to 100K followers. If you\'ve ever been asked for a media kit by a brand and didn\'t have one — or spent hours making one in Canva — Nezia is for you.'},
   {q:'What platforms do you support?',a:'You can connect Instagram, TikTok, and YouTube. If your platform isn\'t listed yet, you can still enter your follower count and engagement manually — raw stats speak louder than the platform name.'},
-  {q:'Can brands find me on Noshi?',a:'Not yet — our Phase 1 focuses on getting you set up with a beautiful media kit. In Phase 2, brands will be able to discover and reach out to creators directly on Noshi. Joining the waitlist now means you\'ll be first when that launches.'},
+  {q:'Can brands find me on Nezia?',a:'Not yet — our Phase 1 focuses on getting you set up with a beautiful media kit. In Phase 2, brands will be able to discover and reach out to creators directly on Nezia. Joining the waitlist now means you\'ll be first when that launches.'},
   {q:'What info goes into the media kit?',a:'Your name, photo, bio, location, linked platforms with follower counts and engagement rates, niche tags, and up to 3 content samples. You control everything — nothing is public until you publish your profile.'},
 ];
 const faqList=document.getElementById('faqList');
