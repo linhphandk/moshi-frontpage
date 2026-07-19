@@ -96,23 +96,38 @@ document.querySelectorAll('.silk-reveal,.silk-reveal-left,.silk-reveal-right').f
   revealObs.observe(el);
 });
 
-// Waitlist form
-const waitlistBtn=document.getElementById('waitlistBtn');
-const waitlistInput=document.getElementById('waitlistEmail');
-if(waitlistBtn&&waitlistInput){
-  waitlistBtn.addEventListener('click',()=>{
-    const email=waitlistInput.value.trim();
-    if(!email||!email.includes('@')){
-      waitlistInput.style.borderColor='var(--red)';
-      setTimeout(()=>waitlistInput.style.borderColor='',2000);
-      return;
-    }
-    waitlistBtn.textContent='You\'re on the list!';
-    waitlistBtn.disabled=true;
-    waitlistBtn.style.opacity='.6';
-    waitlistInput.disabled=true;
-  });
-  waitlistInput.addEventListener('keydown',e=>{
-    if(e.key==='Enter')waitlistBtn.click();
+const WAITLIST_API='/api/waitlist';
+
+function submitWaitlist(email,btn,input){
+  if(!email||!email.includes('@')){
+    input.style.borderColor='var(--red)';
+    setTimeout(()=>input.style.borderColor='',2000);
+    return;
+  }
+  btn.disabled=true;
+  btn.textContent='Joining…';
+  fetch(WAITLIST_API,{
+    method:'POST',
+    headers:{'Content-Type':'application/json'},
+    body:JSON.stringify({email})
+  }).then(r=>{
+    if(!r.ok)throw new Error();
+    btn.textContent="You're on the list!";
+    input.disabled=true;
+  }).catch(()=>{
+    btn.textContent='Join waitlist';
+    btn.disabled=false;
+    input.style.borderColor='var(--red)';
+    setTimeout(()=>input.style.borderColor='',2000);
   });
 }
+
+document.querySelectorAll('.waitlist-wrap,.free-quote').forEach(group=>{
+  const btn=group.querySelector('.waitlist-btn');
+  const input=group.querySelector('.waitlist-input');
+  if(!btn||!input)return;
+  btn.addEventListener('click',()=>submitWaitlist(input.value.trim(),btn,input));
+  input.addEventListener('keydown',e=>{
+    if(e.key==='Enter')submitWaitlist(input.value.trim(),btn,input);
+  });
+});
