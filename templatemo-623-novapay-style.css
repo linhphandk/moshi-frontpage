@@ -469,6 +469,7 @@ nav.scrolled{background:rgba(15,19,25,.95);backdrop-filter:blur(20px);border-col
 }
 .free-quote-name{font-size:14px;font-weight:600;color:var(--text)}
 .free-quote-role{font-size:12px;color:var(--text3)}
+.free-quote-hint{font-size:12px;color:var(--text3);text-align:center}
 
 /* SECTION COMMON */
 .section-tag{

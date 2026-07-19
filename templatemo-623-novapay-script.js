@@ -111,12 +111,6 @@ if(waitlistBtn&&waitlistInput){
     waitlistBtn.disabled=true;
     waitlistBtn.style.opacity='.6';
     waitlistInput.disabled=true;
-    // bump counter
-    const numEl=document.getElementById('waitlistNum');
-    if(numEl){
-      const current=parseInt(numEl.textContent.replace(/,/g,''));
-      numEl.textContent=(current+1).toLocaleString();
-    }
   });
   waitlistInput.addEventListener('keydown',e=>{
     if(e.key==='Enter')waitlistBtn.click();
