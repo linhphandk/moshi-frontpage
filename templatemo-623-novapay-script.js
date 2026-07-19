@@ -96,30 +96,28 @@ document.querySelectorAll('.silk-reveal,.silk-reveal-left,.silk-reveal-right').f
   revealObs.observe(el);
 });
 
-const WAITLIST_API='/api/waitlist';
-
 function submitWaitlist(email,btn,input){
   if(!email||!email.includes('@')){
     input.style.borderColor='var(--red)';
     setTimeout(()=>input.style.borderColor='',2000);
     return;
   }
-  btn.disabled=true;
-  btn.textContent='Joining…';
-  fetch(WAITLIST_API,{
-    method:'POST',
-    headers:{'Content-Type':'application/json'},
-    body:JSON.stringify({email})
-  }).then(r=>{
-    if(!r.ok)throw new Error();
-    btn.textContent="You're on the list!";
-    input.disabled=true;
-  }).catch(()=>{
-    btn.textContent='Join waitlist';
-    btn.disabled=false;
-    input.style.borderColor='var(--red)';
-    setTimeout(()=>input.style.borderColor='',2000);
+  console.log('Waitlist email:',email);
+  const toast=document.createElement('div');
+  toast.textContent="You're on the list! We'll be in touch.";
+  Object.assign(toast.style,{
+    position:'fixed',bottom:'24px',left:'50%',transform:'translateX(-50%)',
+    background:'var(--accent)',color:'#0F1319',padding:'12px 24px',
+    borderRadius:'10px',fontFamily:'DM Sans,sans-serif',fontSize:'14px',
+    fontWeight:'600',zIndex:'200',opacity:'0',
+    transition:'opacity .4s var(--silk)'
   });
+  document.body.appendChild(toast);
+  requestAnimationFrame(()=>toast.style.opacity='1');
+  setTimeout(()=>{
+    toast.style.opacity='0';
+    setTimeout(()=>toast.remove(),500);
+  },3000);
 }
 
 document.querySelectorAll('.waitlist-wrap,.free-quote').forEach(group=>{
