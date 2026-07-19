@@ -173,11 +173,18 @@ nav.scrolled{background:rgba(15,19,25,.95);backdrop-filter:blur(20px);border-col
   font-weight:600;
   color:var(--text2);
   text-decoration:none;
-  padding:8px 0;
+  padding:8px 24px;
   transition:color .2s;
   flex-shrink:0;
 }
 .mobile-menu a:hover{color:var(--accent)}
+.mobile-menu .m-btns{
+  display:flex;flex-direction:column;gap:10px;width:100%;max-width:300px;margin-top:20px;padding:0 24px;
+  flex-shrink:0;
+}
+.mobile-menu .btn-primary,.mobile-menu .btn-ghost{
+  width:100%;text-align:center;padding:12px 24px;font-size:14px;
+}
 
 /* HERO */
 .hero{
